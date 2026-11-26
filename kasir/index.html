@@ -141,14 +141,22 @@
             </div>
         </aside>
 
+        <!-- Overlay penutup menu navigasi di layar kecil -->
+        <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
         <!-- Main Content Area -->
         <main class="main-content">
             <!-- Top Header -->
             <header class="top-header">
                 <div class="header-left">
-                    <div class="header-greeting" id="header-greeting"><span class="greeting-dot"></span> Selamat datang</div>
-                    <h1 id="page-title">Dashboard Management</h1>
-                    <p id="page-subtitle">Ringkasan performa toko & statistik harian real-time</p>
+                    <button class="mobile-menu-btn" id="btn-mobile-menu" aria-label="Buka menu navigasi" title="Buka menu">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <div class="header-title-group">
+                        <div class="header-greeting" id="header-greeting"><span class="greeting-dot"></span> Selamat datang</div>
+                        <h1 id="page-title">Dashboard Management</h1>
+                        <p id="page-subtitle">Ringkasan performa toko & statistik harian real-time</p>
+                    </div>
                 </div>
                 <div class="header-right">
                     <div class="header-role-pill" id="header-role-pill">
@@ -581,7 +589,7 @@
         <div class="modal-dialog">
             <div class="modal-header">
                 <h3><i class="fa-solid fa-cash-register"></i> Pembayaran Kasir</h3>
-                <button class="modal-close" class="btn-close-modal"><i class="fa-solid fa-xmark"></i></button>
+                <button class="modal-close btn-close-modal" aria-label="Tutup pembayaran" title="Tutup"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="modal-body">
                 <div class="checkout-summary-box">

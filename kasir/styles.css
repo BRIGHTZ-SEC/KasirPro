@@ -1746,3 +1746,305 @@ body {
         display: none !important;
     }
 }
+
+/* ==========================================================================
+   MOBILE NAVIGATION & SMALL-SCREEN POLISH
+   ========================================================================== */
+.mobile-menu-btn {
+    display: none;
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-main);
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+.mobile-menu-btn:hover,
+.mobile-menu-btn:focus-visible {
+    border-color: var(--primary);
+    color: var(--primary);
+    outline: none;
+}
+
+.sidebar-overlay {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .app-container {
+        display: block;
+    }
+
+    .sidebar {
+        width: min(85vw, 280px);
+        transform: translateX(-100%);
+        transition: transform 0.25s ease;
+        overflow-y: auto;
+        z-index: 1200;
+        box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+    }
+    .sidebar.open {
+        transform: translateX(0);
+    }
+    .sidebar-nav {
+        gap: 0.35rem;
+    }
+    .nav-item {
+        min-height: 46px;
+        padding: 0.75rem 0.85rem;
+        font-size: 0.9rem;
+    }
+
+    .sidebar-overlay.active {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 1100;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 1rem;
+    }
+
+    .top-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.85rem;
+        margin-bottom: 1.25rem;
+    }
+    .header-left {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+    }
+    .mobile-menu-btn {
+        display: flex;
+    }
+    .header-title-group {
+        min-width: 0;
+    }
+    #page-title {
+        font-size: 1.4rem;
+    }
+    #page-subtitle {
+        font-size: 0.8rem;
+    }
+    .header-right {
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 0.75rem;
+    }
+    .quick-action-btn {
+        flex: 1;
+        justify-content: center;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 0.85rem;
+    }
+    .stat-card {
+        padding: 1rem;
+    }
+    .stat-value {
+        font-size: 1.2rem;
+    }
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+    .col-span-2 {
+        grid-column: span 1;
+    }
+    .content-card {
+        border-radius: var(--radius-md);
+    }
+    .card-header,
+    .card-body {
+        padding: 1rem;
+    }
+    .chart-container {
+        height: 240px;
+    }
+    .chart-container-sm {
+        height: 200px;
+    }
+
+    .pos-layout {
+        gap: 1rem;
+    }
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 0.85rem;
+    }
+    .prod-img-wrapper {
+        height: 110px;
+    }
+    .cart-card {
+        border-radius: var(--radius-md);
+    }
+    .cart-header,
+    .cart-footer {
+        padding: 1rem;
+    }
+
+    .filter-bar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .filter-bar > .flex-center {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    .filter-bar .width-300 {
+        width: 100%;
+    }
+    .filter-group {
+        flex-wrap: wrap;
+    }
+    .filter-actions {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+    .filter-actions .btn {
+        flex: 1;
+    }
+    .data-table th,
+    .data-table td {
+        padding: 0.7rem 0.85rem;
+        font-size: 0.82rem;
+    }
+
+    .modal-backdrop {
+        padding: 0.75rem;
+        overflow-y: auto;
+        align-items: flex-start;
+    }
+    .modal-dialog {
+        display: flex;
+        flex-direction: column;
+        max-height: calc(100vh - 1.5rem);
+        margin: auto 0;
+    }
+    .modal-dialog > form {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        min-height: 0;
+    }
+    .modal-body {
+        flex: 1 1 auto;
+        min-height: 0;
+        padding: 1rem;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    .modal-header,
+    .modal-footer {
+        flex-shrink: 0;
+        padding: 1rem;
+    }
+    .modal-footer {
+        flex-wrap: wrap;
+    }
+    .modal-footer .btn {
+        flex: 1 1 auto;
+    }
+    .modal-close {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+    }
+    .modal-close:active {
+        background: rgba(255, 255, 255, 0.1);
+    }
+    .checkout-summary-box h1 {
+        font-size: 1.8rem;
+    }
+    .payment-methods-grid {
+        gap: 0.4rem;
+    }
+    .pay-method-card {
+        padding: 0.65rem 0.25rem;
+        font-size: 0.68rem;
+    }
+    .pay-method-card i {
+        font-size: 1.1rem;
+    }
+
+    .toast-container {
+        left: 1rem;
+        right: 1rem;
+        bottom: 1rem;
+    }
+    .toast {
+        font-size: 0.82rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-role-pill {
+        display: none;
+    }
+    .form-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .login-panel {
+        padding: 1rem;
+    }
+    .login-card {
+        padding: 1.25rem;
+    }
+    .login-hero h1 {
+        font-size: 2rem;
+    }
+    .modal-header h3 {
+        font-size: 1rem;
+    }
+    .cart-summary-line.grand-total h2 {
+        font-size: 1.2rem;
+    }
+    .payment-methods-grid {
+        grid-template-columns: 1fr;
+    }
+    .pay-method-card {
+        flex-direction: row;
+        justify-content: flex-start;
+        gap: 0.75rem;
+        padding: 0.7rem 0.9rem;
+        font-size: 0.8rem;
+    }
+    .receipt-paper {
+        font-size: 0.72rem;
+    }
+}
+
+@media print {
+    #modal-receipt,
+    #modal-receipt .modal-dialog,
+    #modal-receipt .modal-body {
+        display: block !important;
+        overflow: visible !important;
+        max-height: none !important;
+        padding: 0;
+        margin: 0;
+    }
+    .mobile-menu-btn,
+    .sidebar-overlay {
+        display: none !important;
+    }
+}

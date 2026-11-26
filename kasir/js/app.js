@@ -616,6 +616,32 @@
         });
     }
 
+    // --- MOBILE NAVIGATION ---
+    function setupMobileNav() {
+        const menuBtn = document.getElementById('btn-mobile-menu');
+        const sidebar = document.querySelector('.sidebar');
+        const overlay = document.getElementById('sidebar-overlay');
+
+        function closeMenu() {
+            sidebar.classList.remove('open');
+            overlay.classList.remove('active');
+        }
+
+        menuBtn.addEventListener('click', () => {
+            const isOpen = sidebar.classList.toggle('open');
+            overlay.classList.toggle('active', isOpen);
+        });
+
+        overlay.addEventListener('click', closeMenu);
+        document.querySelectorAll('.nav-item').forEach(btn => btn.addEventListener('click', closeMenu));
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape') closeMenu();
+        });
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) closeMenu();
+        });
+    }
+
     // --- MODULE 1: DASHBOARD RENDERER ---
     function renderDashboard() {
         // Calculate Today's Metrics
@@ -1669,6 +1695,7 @@
         setupAuth();
         setupAccountHandlers();
         setupNavigation();
+        setupMobileNav();
         setupPOSHandlers();
         setupCheckoutHandlers();
         setupReceiptHandlers();
